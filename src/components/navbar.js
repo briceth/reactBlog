@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () => {
   return (
-    <nav className="pt-navbar .modifier">
+    <nav className="pt-navbar pt-dark">
       <div className="pt-navbar-group pt-align-left">
         <div className="pt-navbar-heading">React blog</div>
         <input className="pt-input" placeholder="Search files..." type="text" />
