@@ -4,17 +4,17 @@ const SideBar = () => {
   return (
   <ul className="pt-menu pt-elevation-1 sidebar">
     <li>
-      <a className="pt-menu-item pt-icon-people" tabindex="0">Share...</a>
+      <a className="pt-menu-item pt-icon-people" >Share...</a>
     </li>
     <li>
-      <a className="pt-menu-item pt-icon-circle-arrow-right" tabindex="0">Move...</a>
+      <a className="pt-menu-item pt-icon-circle-arrow-right" >Move...</a>
     </li>
     <li>
-      <a className="pt-menu-item pt-icon-edit" tabindex="0">Rename</a>
+      <a className="pt-menu-item pt-icon-edit" >Rename</a>
     </li>
     <li className="pt-menu-divider"></li>
     <li>
-      <a className="pt-menu-item pt-icon-trash pt-intent-danger" tabindex="0">Delete</a>
+      <a className="pt-menu-item pt-icon-trash pt-intent-danger" >Delete</a>
     </li>
   </ul>
   )
