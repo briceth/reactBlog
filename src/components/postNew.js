@@ -7,35 +7,31 @@ class PostNew extends Component {
   static contextTypes = {
     router: PropTypes.object
   }
-
-  onSubmit(props) {
-    console.log(props)
+  handleSubmit = (props) => {
     this.props.createPost(props)
     .then(() => { this.context.router.push('/')
-    })
-  }
+      })
+    }
+
   render() {
-    const { fields: { first_name, last_name, avatar }, handleSubmit } = this.props;
+    const { fields: { title, categories, content }, handleSubmit } = this.props;
 
     return (
-      <div className='col-xs-12 col-sm-6 col-sm-offset-3 form'>
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <div className='col-xs-12 col-sm-6 col-sm-offset-2 form'>
+        <form onSubmit={this.handleSubmit}>
 
           <h3>Create a new post</h3>
 
           <div className='form-group'>
-            <label>title</label>
-            <input {...first_name} type="text" className="pt-input pt-large form-control" placeholder="title..." />
+            <Field name="title" type="text" component="input" label="title" className="pt-input pt-large form-control" placeholder="title..."/>
           </div>
 
           <div className='form-group'>
-            <label>categories</label>
-            <input {...last_name} type="text" className="pt-input pt-large form-control" placeholder="categories..." />
+            <Field name="categories" type="text" component="input" label="categories" className="pt-input pt-large form-control" placeholder="categories..."/>
           </div>
 
           <div className='form-group'>
-            <label>content</label>
-            <textarea {...avatar} className="pt-input pt-large form-control" dir="auto" placeholder="content..." />
+            <Field name="content" type="text" component="input" label="content" className="pt-input pt-large form-control" dir="auto" placeholder="content..."/>
           </div>
 
           <button type="submit" className="pt-button pt-icon-add pt-large">Submit</button>
@@ -50,7 +46,7 @@ class PostNew extends Component {
 // Decorate the form component
 const formData = ({
   form: 'PostNewForm', // a unique name for this form
-  fields: ['first_name', 'last_name', 'avatar'] //watch for these inputs
+  fields: ['title', 'categories', 'content'] //watch for these inputs
 })
 
 export default connect(null, {createPost})(reduxForm(formData)(PostNew));
