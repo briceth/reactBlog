@@ -4,9 +4,9 @@ import { fetchPosts } from '../actions/index';
 import { Link } from 'react-router';
 
 class PostsIndex extends Component {
-  // componentWillMount() {
-  //   this.props.fetchPosts()
-  // }
+  componentWillMount() {
+    this.props.fetchPosts()
+  }
   render() {
     return (
       <div>
