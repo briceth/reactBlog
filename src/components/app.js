@@ -8,9 +8,7 @@ export default class App extends Component {
     return (
       <div>
         <Navbar />
-        <div className='col-sm-2'>
-          <SideBar />
-        </div>
+        <SideBar />
         {this.props.children}
       </div>
     );

@@ -10,8 +10,8 @@ class PostsIndex extends Component {
   }
   render() {
     return (
-      <div>
-        <div className='col-xs-12 col-sm-6 col-sm-offset-1'>
+      <div className='col-xs-12 col-sm-6 col-sm-offset-1'>
+        <div className='card-posts'>
           <div className="docs-card-example">
             <div className="pt-card pt-elevation-0 pt-interactive">
               <h5><a>Trader Profile</a></h5>
