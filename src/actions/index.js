@@ -1,11 +1,13 @@
 import { FETCH_POSTS, CREATE_POST } from './types';
 import axios from 'axios';
+// import request from 'request';
+// import $ from 'jquery';
 
+//const API_KEY = '?key=123njcnjbncjndjcnjd'
+//const ROOT_URL = `http://reduxblog.herokuapp.com/api/posts${API_KEY}`
 
-const API_KEY = '?key=123njcnjbncjndjcnjd'
-const ROOT_URL = `http://reduxblog.herokuapp.com/api/posts${API_KEY}`
-
-//const ROOT_URL = 'https://jsonplaceholder.typicode.com/posts/'
+//const ROOT_URL = `http://swapi.co/api/people/1`
+const ROOT_URL = 'https://jsonplaceholder.typicode.com/posts/'
 
 export function fetchPosts() {
   const url = `${ROOT_URL}`;

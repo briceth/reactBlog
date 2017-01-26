@@ -3,6 +3,7 @@ import Navbar from './navbar';
 import PostsIndex from './postsIndex';
 import SideBar from './sideBar';
 
+
 export default class App extends Component {
   render() {
     return (

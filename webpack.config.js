@@ -14,7 +14,9 @@ module.exports = {
       query: {
         presets: ['react', 'es2015', 'stage-1']
       }
-    }]
+    },
+    { test: /\.json$/, loader: 'json-loader' }
+  ]
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -22,5 +24,11 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './'
+  },
+  node: {
+    console: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
 };

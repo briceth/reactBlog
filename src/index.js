@@ -9,11 +9,11 @@ import routes from './routes';
 
 import reducers from './reducers';
 
-import Promise from 'redux-promise'
+import ReduxPromise from 'redux-promise'
 
+//promise
 
-
-const createStoreWithMiddleware = applyMiddleware(Promise)(createStore);
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
