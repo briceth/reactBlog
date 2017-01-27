@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/index';
 import { Link } from 'react-router';
 import PostNew from './postNew';
-import $ from 'jquery'
+import * as actions from '../actions';
 // import { bindActionCreators } from 'redux';
 
 class PostsIndex extends Component {
 
-
+  componentWillMount() {
+    this.props.fetchPosts()
+  }
 
   render() {
     return (
@@ -17,7 +19,7 @@ class PostsIndex extends Component {
           <div className="docs-card-example">
             <div className="pt-card pt-elevation-0 pt-interactive">
 
-            
+
 
             </div>
           </div>
