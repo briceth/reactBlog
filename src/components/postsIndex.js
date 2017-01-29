@@ -9,7 +9,6 @@ import * as actionCreators from '../actions/index'
 
 
 class PostsIndex extends Component {
-  render() {  
   renderPosts() {
     return this.props.posts.map((post) => {
       return (
@@ -19,6 +18,7 @@ class PostsIndex extends Component {
       )
     })
   }
+  render() {  
     return (
       <div className='col-xs-12 col-sm-6 col-sm-offset-1'>
         <div className='card-posts'>
