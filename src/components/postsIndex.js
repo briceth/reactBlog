@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions/index';
+//import { fetchPosts } from '../actions/index';
 import { Link } from 'react-router';
 import PostNew from './postNew';
-import * as actions from '../actions';
+//import * as actions from '../actions';
+
+import { fetchUser } from "../actions/userActions"
+import { fetchTweets } from "../actions/tweetsAction"
+
+@connect((store) => {
+  return {
+    user: store.user.user,
+    userFetched: store.user.fetched,
+    tweets: store.tweets.tweets
+  }
+})
 // import { bindActionCreators } from 'redux';
 
 class PostsIndex extends Component {
-
-  componentWillMount() {
-    this.props.fetchPosts()
-  }
 
   render() {
     return (
@@ -28,14 +35,14 @@ class PostsIndex extends Component {
     )
   }
 }
-function mapStateToProps(state) {
-   return { posts: state.posts.all }
-
-}
+// function mapStateToProps(state) {
+//    return { posts: state.posts.all }
+//
+// }
 //export default connect(null, { fetchPosts })(PostsIndex)
 // we replace null by mapStateToProps when we need to fetch the data in the store
 //when we need to fetch the state as props
-export default connect(mapStateToProps, {fetchPosts})(PostsIndex)
+//export default connect(mapStateToProps, {fetchPosts})(PostsIndex)
 
 // function mapDispatchToProps(dispatch) {
 //   return bindActionCreators({ fetchPosts }, dispatch)
