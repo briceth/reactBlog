@@ -3,13 +3,23 @@ import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/index';
 import { Link } from 'react-router';
 import PostNew from './postNew';
-import * as actions from '../actions';
-// import { bindActionCreators } from 'redux';
+
+import { bindActionCreators } from 'redux'
+import * as actionCreators from '../actions/index'
 
 class PostsIndex extends Component {
 
   componentWillMount() {
     this.props.fetchPosts()
+  }
+  renderPosts() {
+    return this.props.posts.map((post) => {
+      return (
+      <li>
+        {post.name}
+      </li>
+      )
+    })
   }
 
   render() {
@@ -19,7 +29,10 @@ class PostsIndex extends Component {
           <div className="docs-card-example">
             <div className="pt-card pt-elevation-0 pt-interactive">
 
-
+              <h3>Posts</h3>
+              <ul>
+                {this.renderPosts()}
+              </ul>
 
             </div>
           </div>
@@ -29,13 +42,22 @@ class PostsIndex extends Component {
   }
 }
 function mapStateToProps(state) {
-   return { posts: state.posts.all }
-
+   return { posts: state.posts }
 }
+
+
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actionCreators, dispatch)
+}
+export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex)
+
+
+
 //export default connect(null, { fetchPosts })(PostsIndex)
 // we replace null by mapStateToProps when we need to fetch the data in the store
 //when we need to fetch the state as props
-export default connect(mapStateToProps, {fetchPosts})(PostsIndex)
+//export default connect(mapStateToProps, {fetchPosts})(PostsIndex)
 
 // function mapDispatchToProps(dispatch) {
 //   return bindActionCreators({ fetchPosts }, dispatch)
