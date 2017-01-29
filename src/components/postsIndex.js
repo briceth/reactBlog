@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import { Link } from 'react-router';
-import PostNew from './postNew';
+import { Link } from 'react-router'
+import PostNew from './postNew'
 
 import { bindActionCreators } from 'redux'
 import * as actionCreators from '../actions/index'
@@ -18,7 +18,7 @@ class PostsIndex extends Component {
       )
     })
   }
-  render() {  
+  render() {
     return (
       <div className='col-xs-12 col-sm-6 col-sm-offset-1'>
         <div className='card-posts'>
@@ -39,10 +39,8 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
-   return { posts: state.posts }
+   return { posts: state.posts.all }
 }
-
-
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(actionCreators, dispatch)

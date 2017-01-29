@@ -1,10 +1,22 @@
-import { applyMiddleware, createStore } from 'redux'
+import { createStore, compse } from 'redux'
+import { syncHistoryWithStore } from 'react-router-redux'
+import  { browserHistory } from 'react-router'
 
-import logger from 'redux-logger'
-import thunk from 'redux-thunk'
-import promise from "redux-promise-middleware"
-import reducer from './reducers'
+//import the root reducer
+import rootReducer from './reducers/index'
 
-const middleware = applyMiddleware(promise(), thunk, logger())
+//import PhotoGrid from './data/courses'
 
-export default createStore(reducer, middleware)
+
+//create an object for the default data
+// const defaultState = {
+//   PhotoGrid,
+// }
+
+const store = createStore(rootReducer)
+
+
+//what does that does?
+export const history = syncHistoryWithStore(browserHistory, store)
+
+export default store
