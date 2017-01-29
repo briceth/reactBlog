@@ -1,3 +1,4 @@
+
 import { FETCH_POSTS, CREATE_POST } from './types';
 import axios from 'axios';
 
