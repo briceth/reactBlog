@@ -7,30 +7,28 @@ import PostNew from './postNew'
 import { bindActionCreators } from 'redux'
 import * as actionCreators from '../actions/index'
 
+import Post from './Post'
 
 class PostsIndex extends Component {
-  renderPosts() {
-    return this.props.posts.map((post) => {
-      return (
-        <li>
-          {post.name}
-        </li>
-      )
-    })
-  }
+  // renderPosts() {
+  //   return this.props.PostsGrid.CSS.map((post) => {
+  //     return (
+  //       <li>
+  //         {post.title}
+  //       </li>
+  //     )
+  //   })
+  // }
   render() {
     return (
       <div className='col-xs-12 col-sm-6 col-sm-offset-1'>
         <div className='card-posts'>
           <div className="docs-card-example">
-            <div className="pt-card pt-elevation-0 pt-interactive">
 
               <h3>Posts</h3>
-              <ul>
-                {this.renderPosts()}
-              </ul>
+            {this.props.PostsGrid.CSS.map((post, index) =>
+              <Post {...this.props} key={index} post={post}/>)}
 
-            </div>
           </div>
         </div>
       </div>
@@ -39,7 +37,7 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
-   return { posts: state.posts.all }
+   return { PostsGrid: state.PostsGrid }
 }
 
 function mapDispatchToProps(dispatch) {

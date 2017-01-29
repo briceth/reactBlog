@@ -5,15 +5,15 @@ import  { browserHistory } from 'react-router'
 //import the root reducer
 import rootReducer from './reducers/index'
 
-//import PhotoGrid from './data/courses'
+import PostsGrid from './data/courses'
 
 
 //create an object for the default data
-// const defaultState = {
-//   PhotoGrid,
-// }
+const defaultState = {
+  PostsGrid,
+}
 
-const store = createStore(rootReducer)
+const store = createStore(rootReducer, defaultState)
 
 
 //what does that does?
