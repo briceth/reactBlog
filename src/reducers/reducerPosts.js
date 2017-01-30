@@ -1,16 +1,16 @@
-//
-// import { FETCH_POSTS } from '../actions/index';
-//
-//
-// const INITIAL_STATE = { all: [], post: null }
-//
-// export default function PostIndex(state = INITIAL_STATE, action) {
-//   switch(action.type) {
-//     case FETCH_POSTS:
-//     return { ...state, all: action.payload.data }
-//   }
+
+import { FETCH_POSTS } from '../actions/index';
+
+const INITIAL_STATE = { all: [], post: null }
+
+export default function(state = INITIAL_STATE, action) {
+  switch(action.type) {
+    case FETCH_POSTS:
+    return { ...state, all: action.payload.data }
+    default:
+    return state
+  }
+}
+// export default function PostsGrid(state = [], action) {
 //   return state
 // }
-export default function PostsGrid(state = [], action) {
-  return state
-}

@@ -7,9 +7,19 @@ import PostNew from './postNew'
 import { bindActionCreators } from 'redux'
 import * as actionCreators from '../actions/index'
 
+import { fetchPosts } from '../actions/index'
+
 import Post from './Post'
 
+import fetch from 'isomorphic-fetch';
+
+
 class PostsIndex extends Component {
+
+  componentWillMount() {
+    this.props.fetchPosts()
+  }
+
   // renderPosts() {
   //   return this.props.PostsGrid.CSS.map((post) => {
   //     return (
@@ -26,8 +36,8 @@ class PostsIndex extends Component {
           <div className="docs-card-example">
 
               <h3>Posts</h3>
-            {this.props.PostsGrid.CSS.map((post, index) =>
-              <Post {...this.props} key={index} post={post}/>)}
+            {/* {this.props.PostsGrid.CSS.map((post, index) =>
+              <Post {...this.props} key={index} post={post}/>)} */}
 
           </div>
         </div>
@@ -36,14 +46,14 @@ class PostsIndex extends Component {
   }
 }
 
-function mapStateToProps(state) {
-   return { PostsGrid: state.PostsGrid }
-}
+// function mapStateToProps(state) {
+//    return { PostsGrid: state.PostsGrid }
+// }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators(actionCreators, dispatch)
-}
-export default connect(mapStateToProps, mapDispatchToProps)(PostsIndex)
+  return bindActionCreators({fetchPosts}, dispatch)//actioncreators
+}                    //mapDispatchToProps
+export default connect(null, mapDispatchToProps)(PostsIndex)
 
 
 //export default connect(null, { fetchPosts })(PostsIndex)
