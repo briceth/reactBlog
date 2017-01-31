@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import PostsGrid from './reducerPosts';
+import posts from './reducerPosts';
 import { routerReducer } from 'react-router-redux';
 
 import { reducer as formReducer } from 'redux-form';
 
 
 const rootReducer = combineReducers({
-  PostsGrid,
+  posts,
   form: formReducer,
   routing: routerReducer
 });
