@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 //import App from './components/app';
 import PostsIndex from './components/postsIndex';
 import formPage from './components/formPage';
+import postShow from './components/postShow';
 import store from './store'
 
 
@@ -16,6 +17,7 @@ const router = (
       <Route path='/' component={App} >
         <IndexRoute component={PostsIndex}></IndexRoute>
         <Route path='post/new' component={formPage}></Route>
+        <Route path='post/:id' component={postShow}></Route>
       </Route>
     </Router>
   </Provider>
