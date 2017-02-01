@@ -17,6 +17,12 @@
 .pt-card {
   margin-top: 1%;
 }
+.pt-card a {
+  color: #394B59;
+}
+.pt-card a:hover {
+  text-decoration: none;
+}
 .pt-intent-danger {
   margin-left: 1%;
 }

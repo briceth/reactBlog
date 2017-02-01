@@ -10,6 +10,7 @@ export default class App extends Component {
       <div>
         <Navbar />
         <SideBar />
+        {/* only one job show children component */}
         {/* {this.props.children} */}
         {React.cloneElement(this.props.children, this.props)}
       </div>

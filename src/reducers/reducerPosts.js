@@ -8,8 +8,8 @@ export default function(state = INITIAL_STATE, action) {
     return { ...state, post: action.payload.data };
   case FETCH_POSTS:
     return { ...state, all: action.payload.data };
-    case DELETE_POST:
-    return {...state};
+    // case DELETE_POST:
+    // return {...state};
   default:
     return state;
   }

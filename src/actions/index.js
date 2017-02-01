@@ -15,10 +15,18 @@ export const DELETE_POST = 'DELETE_POST';
 
 export function fetchPosts() {
   const request = axios.get('http://rest.learncode.academy/api/news/briceth92')
+
   return {
     type: FETCH_POSTS,
     payload: request
   }
+//npm install redux thunk
+  // return((dispatch) => {
+  //   request.then(({data}) => {
+  //     dispatch({type: FETCH_POSTS, payload: data})
+  //   })
+  // })
+
 }
 
 export function createPost(props) {
