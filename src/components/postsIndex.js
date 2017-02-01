@@ -29,7 +29,9 @@ class PostsIndex extends Component {
           <div className="docs-card-example">
 
             <h3>Posts</h3>
+
             {this.renderPosts()}
+
           </div>
         </div>
       </div>
@@ -39,7 +41,6 @@ class PostsIndex extends Component {
 
 function mapStateToProps(state) {
   return { postsgrid: state.posts.all }
-  console.log(state)
 }
 export default connect(mapStateToProps, { fetchPosts })(PostsIndex)
 

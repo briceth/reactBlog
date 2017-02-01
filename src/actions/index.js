@@ -52,3 +52,14 @@ export function deletePost(id) {
     payload: request
   }
 }
+
+export const SEARCH = 'SEARCH';
+
+export function search(value) {
+  const request = axios.get('http://rest.learncode.academy/api/news/briceth92')
+  return {
+    type: SEARCH,
+    payload: request,
+    value
+  }
+}

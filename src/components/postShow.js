@@ -7,7 +7,7 @@ class PostShow extends Component {
   static contextTypes = {
     router: React.PropTypes.object
   }
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchPost(this.props.params.id)
   }
   onDeletePost(){
@@ -15,8 +15,8 @@ class PostShow extends Component {
     this.context.router.push('/')
   }
   render(){
-    const { post } = this.props;
-
+    const title = this.props.post.title;
+      console.log(title)
   //if we dont have a post
     if(!post) {
       return <div>Loading...</div>

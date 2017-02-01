@@ -1,6 +1,6 @@
-import { FETCH_POSTS, FETCH_POST, DELETE_POST } from '../actions/index';
+import { FETCH_POSTS, FETCH_POST, DELETE_POST, SEARCH } from '../actions/index';
 
-const INITIAL_STATE = { all: [], post: null };
+const INITIAL_STATE = { all: [], post: null, value: '', jobSearched: null };
 
 export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
@@ -8,8 +8,15 @@ export default function(state = INITIAL_STATE, action) {
     return { ...state, post: action.payload.data };
   case FETCH_POSTS:
     return { ...state, all: action.payload.data };
-    // case DELETE_POST:
-    // return {...state};
+  case SEARCH:
+    return { ...state, jobSearched: action.payload.data };
+    //return { ...state, all: action.payload.data };
+      //return { ...state, value: action.payload };
+    // const { value } = action;
+    // const data = ["briceth", "jules verne", "egghead"]
+    // const titre = data.map((post) => {return post.title})
+    // const jobSearched = titre.filter((val) => val.match("briceth"));
+    // return { ...state, value, jobSearched }
   default:
     return state;
   }

@@ -12,13 +12,14 @@ class FormPage extends Component {
   }
   onSubmit(props) {
     this.props.createPost(props)
-    this.context.router.push('/')
+    .then(() => {
+      this.context.router.push('/')
+    })
    //blog post has been created, navigate the user to the index
    // we navigate by calling this.context.router.push with the new path to navigate to
   }
   render() {
     const { fields: { title, categories, content }, handleSubmit } = this.props;
-
     return (
       //<ContactForm onSubmit={this.handleSubmit} />
       <div className='col-xs-12 col-sm-6 col-sm-offset-2 form'>
