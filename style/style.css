@@ -1,3 +1,6 @@
+.body {
+  background-color:#EBEFF1;
+}
 .form {
   margin-top: 4%;
 }
@@ -16,4 +19,15 @@
 }
 .pt-intent-danger {
   margin-left: 1%;
+}
+
+.postShow {
+  padding-top: 2%;
+}
+
+.pt-navbar a:hover {
+  text-decoration: none;
+}
+.pt-navbar-heading {
+  color: white;
 }

@@ -3,6 +3,8 @@ import axios from 'axios';
 import fetch from 'isomorphic-fetch';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
+export const FETCH_POST = 'FETCH_POST';
+export const DELETE_POST = 'DELETE_POST';
 
 //const API_KEY = '?key=123njcnjbncjndjcnjd'
 //const ROOT_URL = `http://reduxblog.herokuapp.com/api/posts${API_KEY}`
@@ -23,6 +25,22 @@ export function createPost(props) {
   const request = axios.post('http://rest.learncode.academy/api/news/briceth92', props)
   return {
     type: CREATE_POST,
+    payload: request
+  }
+}
+
+export function fetchPost(id) {
+  const request = axios.get(`http://rest.learncode.academy/api/news/briceth92/${id}`)
+  return {
+    type: FETCH_POST,
+    payload: request
+  }
+}
+
+export function deletePost(id) {
+  const request = axios.delete(`http://rest.learncode.academy/api/news/briceth92/${id}`)
+  return {
+    type: DELETE_POST,
     payload: request
   }
 }

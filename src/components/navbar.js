@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Navbar = () => {
   return (
     <nav className="pt-navbar pt-dark">
       <div className="pt-navbar-group pt-align-left">
+        <Link to='/'>
         <div className="pt-navbar-heading">React blog</div>
+      </Link>
         <input className="pt-input" placeholder="Search files..." type="text" />
       </div>
     <div className="pt-navbar-group pt-align-right">
