@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import _ from 'lodash';
 import { createPost } from '../actions/index';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
