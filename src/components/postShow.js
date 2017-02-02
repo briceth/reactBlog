@@ -15,8 +15,8 @@ class PostShow extends Component {
     this.context.router.push('/')
   }
   render(){
-    const title = this.props.post.title;
-      console.log(title)
+    const { post } = this.props;
+    console.log(post)
   //if we dont have a post
     if(!post) {
       return <div>Loading...</div>
