@@ -12,9 +12,6 @@ class FormPage extends Component {
   }
   onSubmit(props) {
     this.props.createPost(props)
-    .then(() => {
-      this.context.router.push('/')
-    })
    //blog post has been created, navigate the user to the index
    // we navigate by calling this.context.router.push with the new path to navigate to
   }

@@ -1,5 +1,5 @@
-//import { FETCH_POSTS, CREATE_POST } from './types';
 import axios from 'axios';
+//import { browserHistory } from 'react-router';
 import fetch from 'isomorphic-fetch';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
@@ -48,6 +48,7 @@ export function createPost(props) {
       .then(response => {
         console.log(response)
         dispatch({ type: CREATE_POST })
+        browserHistory.push('/');
       })
   }
 }
