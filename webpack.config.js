@@ -27,7 +27,7 @@ module.exports = {
     contentBase: './'
   },
   node: {
-    console: 'empty',
+    //console: 'empty',
     fs: 'empty',
     net: 'empty',
     tls: 'empty'
