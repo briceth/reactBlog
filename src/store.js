@@ -3,14 +3,15 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import  { browserHistory } from 'react-router'
 import { applyMiddleware } from 'redux'
 import rootReducer from './reducers/index'
-import promise from 'redux-promise'
+//import promise from 'redux-promise'
+import reduxThunk from 'redux-thunk'
 import PostsGrid from './data/courses'
 //create an object for the default data
 const defaultState = {
   PostsGrid,
 }
 
-const storeWithMiddleware = applyMiddleware(promise)(createStore);
+const storeWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 
 const store = storeWithMiddleware(rootReducer, defaultState)

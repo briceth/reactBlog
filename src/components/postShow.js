@@ -16,7 +16,7 @@ class PostShow extends Component {
   }
   render(){
     const { post } = this.props;
-    console.log(post)
+    // console.log(post)
   //if we dont have a post
     if(!post) {
       return <div>Loading...</div>

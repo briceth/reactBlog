@@ -17,6 +17,25 @@ class Navbar extends Component {
   componentDidMount() {
     this.props.search()
   }
+  renderLinks() {
+  if (this.props.authenticated) {
+    //show a link to sign out
+    //we dont want a div between the ul and the li
+  return <div className=''>
+      <Link className='' to='/signout'>Sign Out</Link>
+    </div>
+  } else {
+    //show a link to sign out or sign up
+    return [ //react feature for render multiple
+      <div className='' key='signin'>
+        <Link className='' to='/signin'>Sign In</Link>
+      </div>,
+      <div className='' key='signup'>
+        <Link className='' to='/signup'>Sign Up</Link>
+      </div>
+    ];
+  }
+}
   render(){
 
     const { search, jobSearched } = this.props;
@@ -35,6 +54,7 @@ class Navbar extends Component {
           type="text" />
         </div>
         <div className="pt-navbar-group pt-align-right">
+          {this.renderLinks()}
           <button className="pt-button pt-minimal pt-icon-home">Home</button>
           <button className="pt-button pt-minimal pt-icon-document">Files</button>
           <span className="pt-navbar-divider"></span>
@@ -50,7 +70,10 @@ class Navbar extends Component {
 //   return bindActionCreators({ search }, dispatch)
 //  }
  function mapStateToProps(state) {
-   return { jobSearched: state.posts.jobSearched }
+   return {
+     jobSearched: state.posts.jobSearched,
+     authenticated: state.auth.authenticated
+    }
  }
 
 export default connect(mapStateToProps, { search })(Navbar)

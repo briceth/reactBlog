@@ -7,7 +7,6 @@ import { Link } from 'react-router';
 class PostsIndex extends Component {
   componentWillMount() {
     this.props.fetchPosts()
-    //console.log("toto");
   }
   renderPosts() {
     return this.props.postsgrid.map((post, index) => {
@@ -24,7 +23,6 @@ class PostsIndex extends Component {
     })
   }
   render() {
-    console.log("toto");
     return (
       <div className='col-xs-12 col-sm-6 col-sm-offset-1'>
         <div className='card-posts'>

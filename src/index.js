@@ -5,9 +5,13 @@ import App from './components/app'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
 //import App from './components/app';
-import PostsIndex from './components/postsIndex';
-import formPage from './components/formPage';
-import postShow from './components/postShow';
+import PostsIndex from './components/postsIndex'
+import formPage from './components/formPage'
+import postShow from './components/postShow'
+
+import Signin from './components/auth/signin'
+import Signup from './components/auth/signup'
+import Signout from './components/auth/signout'
 import store from './store'
 
 
@@ -18,6 +22,9 @@ const router = (
         <IndexRoute component={PostsIndex}></IndexRoute>
         <Route path='post/new' component={formPage}></Route>
         <Route path='post/:id' component={postShow}></Route>
+        <Route path='signin' component={Signin} />
+        <Route path='signup' component={Signup} />
+        <Route path='signout' component={Signout} />
       </Route>
     </Router>
   </Provider>
