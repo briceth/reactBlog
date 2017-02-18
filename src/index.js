@@ -4,7 +4,7 @@ import App from './components/app'
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
-//import App from './components/app';
+
 import PostsIndex from './components/postsIndex'
 import formPage from './components/formPage'
 import postShow from './components/postShow'

@@ -7,14 +7,14 @@ import rootReducer from './reducers/index'
 import reduxThunk from 'redux-thunk'
 import PostsGrid from './data/courses'
 //create an object for the default data
-const defaultState = {
-  PostsGrid,
-}
+// const defaultState = {
+//   PostsGrid,
+// }
 
-const storeWithMiddleware = applyMiddleware(reduxThunk)(createStore);
+const storeWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 
 
-const store = storeWithMiddleware(rootReducer, defaultState)
+const store = storeWithMiddleware(rootReducer)
 
 
 //what does that does?

@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
-import PostsReducer from './reducerPosts';
+import posts from './reducerPosts';
 import auth from './authReducers';
 import { routerReducer } from 'react-router-redux';
-import { reducer as formReducer } from 'redux-form';
+import { reducer as form } from 'redux-form';
 
 const rootReducer = combineReducers({
-  posts: PostsReducer,
-  form: formReducer,
+  posts,
+  form,
   routing: routerReducer,
-  auth: auth
+  auth
 });
 
 export default rootReducer;

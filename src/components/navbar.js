@@ -14,9 +14,9 @@ class Navbar extends Component {
   //   }
   // }
 
-  componentDidMount() {
-    this.props.search()
-  }
+  // componentDidMount() {
+  //   this.props.search()
+  // }
   renderLinks() {
   if (this.props.authenticated) {
     //show a link to sign out
@@ -44,8 +44,8 @@ class Navbar extends Component {
       <nav className="pt-navbar pt-dark">
         <div className="pt-navbar-group pt-align-left">
           <Link to='/'>
-          <div className="pt-navbar-heading">React blog</div>
-        </Link>
+            <div className="pt-navbar-heading">React blog</div>
+          </Link>
         <input
           onChange={(e) => search(e.target.value)}
           value=''
