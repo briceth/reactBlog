@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { browserHistory } from 'react-router'
-import setAuthorizationToken from './../action_helpers/setAuthorizationToken'
+//import //setAuthorizationToken from './../action_helpers///setAuthorizationToken'
 import jwt from 'jsonwebtoken'
 import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, SET_CURRENT_USER } from './types';
 
@@ -25,7 +25,7 @@ export function signinUser({ email, password }) {
         //-Save the JWT token
         const token = response.data.token;
         localStorage.setItem('token', token);
-        setAuthorizationToken(token);
+        //setAuthorizationToken(token);
         dispatch(setCurrentUser(jwt.decode(token)));
         //-redirect to the route/....whatever
       browserHistory.push('/');

@@ -16,13 +16,13 @@ class PostsIndex extends Component {
 
   renderPosts() {
     //const table = this.props.postsgrid
-    //console.table(table)
+    console.log(this.props.postsgrid)
     //return this.props.postsgrid.all[0].title
     return this.props.postsgrid.map((post, index) => {
       return (
         <div key={index} className="pt-card pt-elevation-0 pt-interactive">
           <Link to={'post/' + post.id }>
-              {post.title}
+              {/* { post.title } */}plus d'infos
           </Link>
           <div className='pull-xs-right'>
             &heart
