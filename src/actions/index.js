@@ -7,17 +7,18 @@ export const CREATE_POST = 'CREATE_POST';
 export const FETCH_POST = 'FETCH_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const AUTH_ERROR = 'AUTH_ERROR';
-
+export const CREATE_COMMENT = 'CREATE_COMMENT';
 
 const ROOT_URL ='http://rest.learncode.academy/api/news/briceth92'
 //const API_URL = 'http://localhost:3090'
+//const API_REDDIT = 'http://localhost:3000/api'   //pas besoin de sign
 
 export function fetchPosts() {
   return function(dispatch) {
-    axios.get(ROOT_URL)
+    axios.get('http://localhost:3000/api/posts')
       .then(response => {
-        console.log(response);
-        dispatch({ type: FETCH_POSTS, payload: response })
+        console.log(response)
+        dispatch({ type: FETCH_POSTS, payload: response.data })
       })
       .catch(() => {
         dispatch(auth_error('can not load'))
@@ -27,7 +28,7 @@ export function fetchPosts() {
   export function auth_error(error) {
    return {
      type: AUTH_ERROR,
-   payload: error
+     payload: error
   };
  }
 
@@ -46,7 +47,6 @@ export function fetchPost(id) {
   return function(dispatch) {
     axios.get(`http://rest.learncode.academy/api/news/briceth92/${id}`)
       .then(response => {
-        console.log(response)
         dispatch({ type: FETCH_POST, payload: response})
       })
   }
@@ -58,6 +58,16 @@ export function deletePost(id) {
       .then(response => {
         console.log(response)
         dispatch({ type: DELETE_POST, payload: response })
+      })
+  }
+}
+
+export function createComment(props) {
+  return function(dispatch) {
+    axios.post(``, props)
+      .then(response => {
+        console.log(response)
+        dispatch({ type: CREATE_COMMENT })
       })
   }
 }

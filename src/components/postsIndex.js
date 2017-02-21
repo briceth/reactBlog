@@ -7,17 +7,11 @@ import { Link } from 'react-router';
 class PostsIndex extends Component {
   componentWillMount() {
     this.props.fetchPosts()
-    console.log('componentWillMount')
-  }
-
-  componentDidMount() {
-    console.log('componentDidMount')
   }
 
   renderPosts() {
     //const table = this.props.postsgrid
-    console.log(this.props.postsgrid)
-    //return this.props.postsgrid.all[0].title
+    //console.log(this.props.postsgrid)
     return this.props.postsgrid.map((post, index) => {
       return (
         <div key={index} className="pt-card pt-elevation-0 pt-interactive">
