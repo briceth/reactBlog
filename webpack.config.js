@@ -25,5 +25,9 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './'
+  },
+  node: {
+    net: 'empty',
+    dns: 'empty'
   }
 };

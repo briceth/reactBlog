@@ -13,7 +13,15 @@ import Signin from './components/auth/signin'
 import Signup from './components/auth/signup'
 import Signout from './components/auth/signout'
 import store from './store'
+import setAuthorizationToken from './actions/action_helpers/setAuthorizationToken'
+import jwt from 'jsonwebtoken'
+import setCurrentUser from './actions/auth/index'
 
+if (localStorage.jwtToken) {
+  console.log(localStorage.jwtToken)
+  setAuthorizationToken(localStorage.jwtToken)
+  store.dispatch(setCurrentUser(jwt.decode(localStorage.jwtToken)))
+}
 
 const router = (
   <Provider store={store}>

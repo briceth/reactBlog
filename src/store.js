@@ -6,10 +6,7 @@ import rootReducer from './reducers/index'
 //import promise from 'redux-promise'
 import reduxThunk from 'redux-thunk'
 import PostsGrid from './data/courses'
-//create an object for the default data
-// const defaultState = {
-//   PostsGrid,
-// }
+
 
 const storeWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 

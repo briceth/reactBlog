@@ -1,6 +1,9 @@
 import { AUTH_USER } from '../actions/auth/types';
 import { UNAUTH_USER } from '../actions/auth/types';
 import { AUTH_ERROR } from '../actions/auth/types';
+import { SET_CURRENT_USER } from '../actions/auth/types';
+
+
 
 export default function(state = {}, action) {
   switch(action.type) {
@@ -10,6 +13,8 @@ export default function(state = {}, action) {
       return { ...state, authenticated: false};
     case AUTH_ERROR:
       return { ...state, error: action.payload };
+    case SET_CURRENT_USER:
+      return { ...state, user: action.user }
   }
   return state;
 }

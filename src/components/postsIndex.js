@@ -15,7 +15,9 @@ class PostsIndex extends Component {
   }
 
   renderPosts() {
-    console.log(this.props.postsgrid)
+    //const table = this.props.postsgrid
+    //console.table(table)
+    //return this.props.postsgrid.all[0].title
     return this.props.postsgrid.map((post, index) => {
       return (
         <div key={index} className="pt-card pt-elevation-0 pt-interactive">
@@ -35,7 +37,7 @@ class PostsIndex extends Component {
         <div className='card-posts'>
           <div className="docs-card-example">
 
-            
+
             <h3>Posts</h3>
 
             {this.renderPosts()}

@@ -1,8 +1,18 @@
-import axios from 'axios';
-import { browserHistory } from 'react-router';
-import { AUTH_USER, AUTH_ERROR, UNAUTH_USER } from './types';
+import axios from 'axios'
+import { browserHistory } from 'react-router'
+import setAuthorizationToken from './../action_helpers/setAuthorizationToken'
+import jwt from 'jsonwebtoken'
+import { AUTH_USER, AUTH_ERROR, UNAUTH_USER, SET_CURRENT_USER } from './types';
 
 const API_URL = 'http://localhost:3090';
+
+export function setCurrentUser(user) {
+  return {
+    type: SET_CURRENT_USER,
+    user
+  }
+}
+
 
 export function signinUser({ email, password }) {
   return function(dispatch) {
@@ -13,7 +23,10 @@ export function signinUser({ email, password }) {
         //-Update state to indicate user is authenticated
         dispatch({ type: AUTH_USER });
         //-Save the JWT token
-        localStorage.getItem('token', response.data.token);
+        const token = response.data.token;
+        localStorage.setItem('token', token);
+        setAuthorizationToken(token);
+        dispatch(setCurrentUser(jwt.decode(token)));
         //-redirect to the route/....whatever
       browserHistory.push('/');
       })
