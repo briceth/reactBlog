@@ -8,6 +8,7 @@ export const FETCH_POST = 'FETCH_POST'
 export const DELETE_POST = 'DELETE_POST'
 export const AUTH_ERROR = 'AUTH_ERROR'
 export const CREATE_COMMENT = 'CREATE_COMMENT'
+export const  FETCH_COMMENT ='FETCH_COMMENT'
 
 const ROOT_URL ='http://rest.learncode.academy/api/news/briceth92'
 //const API_URL = 'http://localhost:3090'
@@ -73,6 +74,17 @@ export function createComment(props, postId) {
       })
   }
 }
+
+export function fetchComment() {
+  return function(dispatch) {
+    axios.get(`http://localhost:3000/api/comments/`)
+      .then(response => {
+        console.log(response)
+        dispatch({ type: FETCH_COMMENT, payload: response.data })
+      })
+  }
+}
+
 
 // export const SEARCH = 'SEARCH';
 //

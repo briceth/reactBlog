@@ -1,15 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchPost, deletePost } from '../actions/index';
+import { fetchPost, deletePost, fetchComment } from '../actions/index';
 import { Link } from 'react-router';
-import CommentForm  from './Comments';
+import Comments  from './Comments';
 
 class PostShow extends Component {
   static contextTypes = {
     router: React.PropTypes.object
   }
+
   componentWillMount() {
     this.props.fetchPost(this.props.params.id)
+    this.props.fetchComment()
   }
   onDeletePost(){
     this.props.deletePost(this.props.params.id)
@@ -18,6 +20,8 @@ class PostShow extends Component {
 
 
   render(){
+    //console.log(this.props.comment)
+
     const { post } = this.props;
     //console.table(post)
   //if we dont have a post
@@ -31,13 +35,13 @@ class PostShow extends Component {
         <h6>categories: {post.categories}</h6>
         <p>{post.content}</p>
         <button className='pt-button pt-intent-danger' onClick={this.onDeletePost.bind(this)}>Delete post</button>
-        <CommentForm {...this.props} />
+        <Comments {...this.props} />
       </div>
     )
   }
 }
 
 function mapStateToProps(state){
-  return { post: state.posts.post }
+  return { post: state.posts.post, comment: state.comment.comment }
 }
-export default connect(mapStateToProps, { fetchPost, deletePost })(PostShow)
+export default connect(mapStateToProps, { fetchPost, deletePost, fetchComment })(PostShow)
