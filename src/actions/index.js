@@ -64,9 +64,9 @@ export function deletePost(id) {
   }
 }
 
-export function createComment(props) {
+export function createComment(props, postId) {
   return function(dispatch) {
-    axios.post(``, props)
+    axios.post(`http://localhost:3000/api/comment/`, props, postId)
       .then(response => {
         console.log(response)
         dispatch({ type: CREATE_COMMENT })

@@ -15,6 +15,8 @@ class PostShow extends Component {
     this.props.deletePost(this.props.params.id)
     this.context.router.push('/')
   }
+
+
   render(){
     const { post } = this.props;
     //console.table(post)
@@ -29,7 +31,7 @@ class PostShow extends Component {
         <h6>categories: {post.categories}</h6>
         <p>{post.content}</p>
         <button className='pt-button pt-intent-danger' onClick={this.onDeletePost.bind(this)}>Delete post</button>
-        <CommentForm />
+        <CommentForm {...this.props} />
       </div>
     )
   }
