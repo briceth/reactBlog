@@ -15,7 +15,7 @@ class PostsIndex extends Component {
     return this.props.postsgrid.map((post, index) => {
       return (
         <div key={index} className="pt-card pt-elevation-0 pt-interactive">
-          <Link to={'post/' + post.id }>
+          <Link to={'post/' + post._id }>
               {/* { post.title } */}plus d'infos
           </Link>
           <div className='pull-xs-right'>

@@ -8,7 +8,7 @@ class PostShow extends Component {
   static contextTypes = {
     router: React.PropTypes.object
   }
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchPost(this.props.params.id)
   }
   onDeletePost(){
@@ -17,7 +17,7 @@ class PostShow extends Component {
   }
   render(){
     const { post } = this.props;
-    // console.log(post)
+    //console.table(post)
   //if we dont have a post
     if(!post) {
       return <div>Loading...</div>
@@ -38,4 +38,4 @@ class PostShow extends Component {
 function mapStateToProps(state){
   return { post: state.posts.post }
 }
-export default connect(mapStateToProps, {fetchPost, deletePost})(PostShow)
+export default connect(mapStateToProps, { fetchPost, deletePost })(PostShow)
