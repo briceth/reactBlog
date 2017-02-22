@@ -18,7 +18,7 @@ export function fetchPosts() {
   return function(dispatch) {
     axios.get('http://localhost:3000/api/posts')
       .then(response => {
-        //console.log(response)
+        console.log(response)
         dispatch({ type: FETCH_POSTS, payload: response.data })
       })
       .catch(() => {
@@ -66,8 +66,17 @@ export function deletePost(id) {
 }
 
 export function createComment(props, postId) {
+  console.log(props)
+  console.log(postId)
+
+  let config = {
+  	"userId": "58ac1551c5ff2c4cbaf33c36",
+  	"postId": postId,
+  	"content": props.content
+  }
+  
   return function(dispatch) {
-    axios.post(`http://localhost:3000/api/comment/`, props, postId)
+    axios.post(`http://localhost:3000/api/comment/`, config)
       .then(response => {
         console.log(response)
         dispatch({ type: CREATE_COMMENT })

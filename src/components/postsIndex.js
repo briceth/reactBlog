@@ -16,7 +16,7 @@ class PostsIndex extends Component {
       return (
         <div key={index} className="pt-card pt-elevation-0 pt-interactive">
           <Link to={'post/' + post._id }>
-              {/* { post.title } */}plus d'infos
+              { post.title }
           </Link>
           <div className='pull-xs-right'>
             &heart

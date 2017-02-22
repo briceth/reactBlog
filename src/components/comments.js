@@ -5,16 +5,35 @@ import { createComment } from '../actions/index'
 class CommentForm extends Component {
   onSubmit(props) {
     const postId = this.props.params.id
-    console.log(postId)
     this.props.createComment(props, postId)
     this.refs.commentForm.reset()
   }
 
-  render() {
-    const index = this.props.comment.find((comment) => comment._post ===
-    this.props.params.id)
+  renderComments(comment, index) {
+    return(
+      <div key={index}>
+        <p>
+          {comment.content}
+        </p>
+      </div>
+    )
+  }
 
-    console.log(index)
+  render() {
+  // const postId = this.props.params.id
+//   const comments = this.props.comment
+// console.log(comments)
+  //
+  // function commentsForPost(postId, comments) {
+  //     return comments.filter(function(comment) {
+  //       return comment._post === postId
+  //     })
+  //   }
+  // console.log(commentsForPost(postId, comments))
+
+    const index = this.props.comment.filter((comment) => comment._post ===
+    this.props.params.id)
+  console.log(index)
 
     const { fields: { content }, handleSubmit } = this.props;
     return(
@@ -25,6 +44,7 @@ class CommentForm extends Component {
           <button type="submit" className="pt-button pt-icon-add">Submit</button>
         </form>
         <div>
+          { this.props.comment.map(this.renderComments.bind(this)) }
         </div>
       </div>
     )
