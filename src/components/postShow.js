@@ -20,11 +20,11 @@ class PostShow extends Component {
 
 
   render(){
-    //console.log(this.props.comment)
+    const { post, comments } = this.props;
 
-    const { post } = this.props;
-    //console.table(post)
-  //if we dont have a post
+    const commentsForEachPost = comments.filter(comment => comment._post ===
+      this.props.params.id)
+
     if(!post) {
       return <div>Loading...</div>
     }
@@ -35,13 +35,13 @@ class PostShow extends Component {
         <h6>categories: {post.categories}</h6>
         <p>{post.content}</p>
         <button className='pt-button pt-intent-danger' onClick={this.onDeletePost.bind(this)}>Delete post</button>
-        <Comments {...this.props} />
+        <Comments {...this.props} commentsForEachPost={commentsForEachPost} />
       </div>
     )
   }
 }
 
 function mapStateToProps(state){
-  return { post: state.posts.post, comment: state.comment.comment }
+  return { post: state.posts.post, comments: state.comment.comment }
 }
 export default connect(mapStateToProps, { fetchPost, deletePost, fetchComment })(PostShow)

@@ -20,22 +20,9 @@ class CommentForm extends Component {
   }
 
   render() {
-  // const postId = this.props.params.id
-//   const comments = this.props.comment
-// console.log(comments)
-  //
-  // function commentsForPost(postId, comments) {
-  //     return comments.filter(function(comment) {
-  //       return comment._post === postId
-  //     })
-  //   }
-  // console.log(commentsForPost(postId, comments))
-
-    const index = this.props.comment.filter((comment) => comment._post ===
-    this.props.params.id)
-  console.log(index)
 
     const { fields: { content }, handleSubmit } = this.props;
+
     return(
       <div>
         <form ref='commentForm' onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -44,7 +31,7 @@ class CommentForm extends Component {
           <button type="submit" className="pt-button pt-icon-add">Submit</button>
         </form>
         <div>
-          { this.props.comment.map(this.renderComments.bind(this)) }
+          { this.props.commentsForEachPost.map(this.renderComments.bind(this)) }
         </div>
       </div>
     )

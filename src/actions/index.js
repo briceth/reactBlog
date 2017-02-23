@@ -74,7 +74,7 @@ export function createComment(props, postId) {
   	"postId": postId,
   	"content": props.content
   }
-  
+
   return function(dispatch) {
     axios.post(`http://localhost:3000/api/comment/`, config)
       .then(response => {
@@ -88,7 +88,7 @@ export function fetchComment() {
   return function(dispatch) {
     axios.get(`http://localhost:3000/api/comments/`)
       .then(response => {
-        console.log(response)
+        //console.log(response)
         dispatch({ type: FETCH_COMMENT, payload: response.data })
       })
   }
