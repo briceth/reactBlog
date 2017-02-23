@@ -1,4 +1,4 @@
-import { FETCH_POSTS, FETCH_POST, DELETE_POST, SEARCH, AUTH_ERROR } from '../actions/index';
+import { FETCH_POSTS, FETCH_POST, DELETE_POST, SEARCH, AUTH_ERROR } from '../actions/types'
 
 const INITIAL_STATE = { all: [], post: null, value: '', jobSearched: null };
 

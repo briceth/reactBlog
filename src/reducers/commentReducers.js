@@ -1,4 +1,5 @@
-import { FETCH_COMMENT } from '../actions/index';
+import { FETCH_COMMENT } from '../actions/types'
+
 import _ from 'lodash'
 
 const INITIAL_STATE = { comment: [] };
