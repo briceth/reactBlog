@@ -1,4 +1,4 @@
-import { FETCH_POSTS, CREATE_POST, FETCH_POST, DELETE_POST, AUTH_ERROR, CREATE_COMMENT, FETCH_COMMENT } from './types'
+import { FETCH_POSTS, CREATE_POST, FETCH_POST, DELETE_POST, AUTH_ERROR, CREATE_COMMENT, FETCH_COMMENT, CREATE_LIKE } from './types'
 import axios from 'axios'
 
 //import { browserHistory } from 'react-router'
@@ -83,6 +83,19 @@ export function fetchComment() {
   }
 }
 
+export function likePost(postId) {
+  let config = {
+  	"userId": "58ac1551c5ff2c4cbaf33c36",
+  	"postId": postId,
+  	"content": props.content
+  }
+  return function(dispatch) {
+    axios.post(`${API_URL}/posts/`, config)
+      .then(response => {
+        dispatch({ type: CREATE_LIKE })
+      })
+  }
+}
 
 // export const SEARCH = 'SEARCH';
 //

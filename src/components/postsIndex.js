@@ -19,7 +19,7 @@ class PostsIndex extends Component {
               { post.title }
           </Link>
           <div className='pull-xs-right'>
-            &heart
+            <a onClick={}><i className="fa fa-heart"></i></a>
           </div>
         </div>
       )
