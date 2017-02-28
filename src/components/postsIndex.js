@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions/index';
+import { fetchPosts, increment } from '../actions/index';
 import { Link } from 'react-router';
 
 
 class PostsIndex extends Component {
   componentWillMount() {
     this.props.fetchPosts()
+  }
+  increment(data) {
   }
 
   renderPosts() {
@@ -19,7 +21,8 @@ class PostsIndex extends Component {
               { post.title }
           </Link>
           <div className='pull-xs-right'>
-            <a onClick={}><i className="fa fa-heart"></i></a>
+            <button onClick={this.props.increment.bind(null, post._id)}>&hearts;</button>
+            {/* <a><i className="fa fa-heart"></i></a> */}
           </div>
         </div>
       )
@@ -46,7 +49,7 @@ class PostsIndex extends Component {
 function mapStateToProps(state) {
   return { postsgrid: state.posts.all }
 }
-export default connect(mapStateToProps, { fetchPosts })(PostsIndex)
+export default connect(mapStateToProps, { fetchPosts, increment })(PostsIndex)
 
 //
 // function mapDispatchToProps(dispatch) {

@@ -8,6 +8,7 @@ export default function(state = INITIAL_STATE, action) {
   switch(action.type) {
   case FETCH_COMMENT:
   return { ...state, comment: action.payload.data };
+  console.log(INITIAL_STATE)
     //return _.unionBy(state, action.payload.data, '_id');
   default:
     return state;

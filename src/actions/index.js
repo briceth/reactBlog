@@ -11,7 +11,7 @@ export function fetchPosts() {
   return function(dispatch) {
     axios.get(`${API_URL}/posts`)
       .then(response => {
-        console.log(response)
+        //console.log(response)
         dispatch({ type: FETCH_POSTS, payload: response.data })
       })
       .catch(() => {
@@ -68,7 +68,7 @@ export function createComment(props, postId) {
   return function(dispatch) {
     axios.post(`${API_URL}/comment/`, config)
       .then(response => {
-        console.log(response)
+        //console.log(response)
         dispatch({ type: CREATE_COMMENT })
       })
   }
@@ -83,15 +83,16 @@ export function fetchComment() {
   }
 }
 
-export function likePost(postId) {
+export function increment(postId) {
+  console.log(postId)
   let config = {
-  	"userId": "58ac1551c5ff2c4cbaf33c36",
-  	"postId": postId,
-  	"content": props.content
+  	"userId": "58ac1dc72d0cfc4f86878e82",
+  	"postId": postId
   }
   return function(dispatch) {
     axios.post(`${API_URL}/posts/`, config)
       .then(response => {
+        console.log(response)
         dispatch({ type: CREATE_LIKE })
       })
   }
